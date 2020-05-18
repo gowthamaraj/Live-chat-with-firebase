@@ -13,26 +13,26 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container text-center app p-5 rounded">
-      <header class="my-2">
+    <div class="container app p-5 rounded">
+      <header class="my-2 text-center ">
         <h1>Live chat APP</h1>
       </header>
 
       <!-- for changing room -->
-      <div class="rooms rounded my-3">
-        <button class="btn btn-info"><a>#Gaming</a></button>
-        <button class="btn btn-info"><a>#Movies</a></button>
-        <button class="btn btn-info"><a>#Sports</a></button>
-        <button class="btn btn-info"><a>#Tech</a></button>
+      <div class="rooms rounded my-3 text-center">
+        <button class="btn btn-info selected" data-room="gaming">#Gaming</button>
+        <button class="btn btn-info" data-room="movies">#Movies</button>
+        <button class="btn btn-info" data-room="sports">#Sports</button>
+        <button class="btn btn-info" data-room="tech">#Tech</button>
       </div>
 
       <!-- area to put the incoming messages -->
       <div class="message_box">
-        <ul></ul>
+        <ul class="list-group rounded"></ul>
       </div>
 
       <!-- form for sending message -->
-      <form class="my-3">
+      <form class="send my-3 text-center">
         <div class="input-group mb-2">
           <div class="input-group-prepend">
             <div class="input-group-text">Message :</div>
@@ -50,7 +50,7 @@
       </form>
 
       <!-- form for changing name -->
-      <form class="my-3">
+      <form class="change my-3 text-center">
         <div class="input-group mb-2">
           <div class="input-group-prepend">
             <div class="input-group-text">Update Name :</div>
@@ -94,6 +94,7 @@
   firebase.analytics();
   const db = firebase.firestore();
 </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.js"></script>
     <script src="./scripts/chat.js"></script>
     <script src="./scripts/UI.js"></script>
     <script src="./scripts/app.js"></script>

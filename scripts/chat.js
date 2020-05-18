@@ -1,9 +1,3 @@
-// db.collection('chats').get().then((snapshot) => {
-//     console.log(snapshot.docs[0].data());
-// }).catch( err => {
-//     console.log(err);
-// })
-
 class User{
     constructor(name,room){
         this.name = name;
@@ -11,22 +5,36 @@ class User{
         this.database = db.collection('chats');
         this.state;
     }
-    async getMessage(){
+    async getMessage(callback){
         this.state = this.database.where('room', '==', this.room)
         .orderBy('time').onSnapshot(snapshot => {
             snapshot.docChanges().forEach( change => {
-                // if(change.type === 'added')
+                if(change.type === 'added')
                 {
-                    console.log(change.type)
+                    callback(change.doc.data());
                   }
             })
         })
     }
+    changeName(name){
+        this.name = name;
+        localStorage.name = name;
+    }
+    ChangeRoom(room){
+        this.room = room;
+        if(this.state){
+            this.state();
+          }
+    }
+    async add(message){
+        const time = new Date();
+        const data = {
+            message : message,
+            name : this.name,
+            room : this.room,
+            time : firebase.firestore.Timestamp.fromDate(time)
+        };
+        const response = await this.database.add(data);
+        return response;
+    }
 }
-
-const new_user = new User("mike","gaming");
-new_user.getMessage().then(()=>{
-    console.log("got the message");}
-).catch( err => {
-    console.log(err);
-})
