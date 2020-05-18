@@ -1,0 +1,23 @@
+body{
+    background-color: #F9F9FA;
+}
+
+.app{
+max-width: 600px;
+background-color: #C8CDD2;
+}
+
+header{
+    color: #15C26B;
+}
+
+button{
+    border-radius: 2px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.message_box{
+    background-color: #F9F9FA;
+}

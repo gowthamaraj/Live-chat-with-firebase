@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live chat</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container text-center app p-5 rounded">
+      <header class="my-2">
+        <h1>Live chat APP</h1>
+      </header>
+
+      <!-- for changing room -->
+      <div class="rooms rounded my-3">
+        <button class="btn btn-info"><a>#Gaming</a></button>
+        <button class="btn btn-info"><a>#Movies</a></button>
+        <button class="btn btn-info"><a>#Sports</a></button>
+        <button class="btn btn-info"><a>#Tech</a></button>
+      </div>
+
+      <!-- area to put the incoming messages -->
+      <div class="message_box">
+        <ul></ul>
+      </div>
+
+      <!-- form for sending message -->
+      <form class="my-3">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Message :</div>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="message"
+            placeholder="Message to send"
+          />
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- form for changing name -->
+      <form class="my-3">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Update Name :</div>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="user_name"
+            placeholder="New Name"
+          />
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Change</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- firebase -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDneXBwjTXQ5onG7xq2iQdCpBJmYW8bcwc",
+    authDomain: "live-chat-app-25ae1.firebaseapp.com",
+    databaseURL: "https://live-chat-app-25ae1.firebaseio.com",
+    projectId: "live-chat-app-25ae1",
+    storageBucket: "live-chat-app-25ae1.appspot.com",
+    messagingSenderId: "347195823245",
+    appId: "1:347195823245:web:7c719f44f1ae979706bec4",
+    measurementId: "G-FWK8VDY6P6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const db = firebase.firestore();
+</script>
+    <script src="./scripts/chat.js"></script>
+    <script src="./scripts/UI.js"></script>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>
